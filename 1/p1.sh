@@ -1,0 +1,1 @@
+cat 1.in | python checknsum.py
