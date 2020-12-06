@@ -1,22 +1,16 @@
-def read_answers(src):
-    ans = [set()]
-    idx = 0
-    for line in map(str.strip, src):
-        if not line:
-            ans.append(set())
-            idx += 1
-            continue
-        
-        ans[idx] = ans[idx].union(set(line))
-    
-    return ans
+import sys
+import functools
+import operator
 
-if __name__ == '__main__':
-    import sys
-    import functools
-    import operator
+initset = set()
 
-    answers = read_answers(sys.stdin)
-    count = map(len, answers)
-    print(functools.reduce(operator.add, count))
+stripln = map(str.strip, sys.stdin)
+answers = functools.reduce(
+    lambda acc, x: acc[:-1] + [acc[-1].union(set(x))] if x else acc + [initset],
+    stripln,
+    [initset]
+)
+cntansw = map(len, answers)
+
+print(functools.reduce(operator.add, cntansw))
     
