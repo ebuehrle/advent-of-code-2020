@@ -1,16 +1,16 @@
 def run_program(program):
-    executed = [False for i in program]
+    executed = set()
     ip = 0
     acc = 0
 
     while True:
         if ip == len(program):
             return (True, acc)
-        elif ip > len(program) or executed[ip]:
+        elif ip > len(program) or ip in executed:
             return (False, acc)
 
-        instr = program[ip]
-        executed[ip] = True
+        instr = program[ip].split()
+        executed.add(ip)
 
         if instr[0] == 'nop':
             ip += 1
@@ -24,7 +24,7 @@ def run_program(program):
 
 def fix_program(program):
     for idx, instr in enumerate(program):
-        if instr[0] == 'nop':
-            yield program[:idx] + [['jmp'] + instr[1:]] + program[idx+1:]
-        elif instr[0] == 'jmp':
-            yield program[:idx] + [['nop'] + instr[1:]] + program[idx+1:]
+        if instr.startswith('nop'):
+            yield program[:idx] + [instr.replace('nop', 'jmp')] + program[idx+1:]
+        elif instr.startswith('jmp'):
+            yield program[:idx] + [instr.replace('jmp', 'nop')] + program[idx+1:]
