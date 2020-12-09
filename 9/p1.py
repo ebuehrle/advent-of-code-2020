@@ -10,8 +10,8 @@ def checknsum(numbers, target, n, start=0):
 
 def find_invalid(numbers, preamble):
     for i, z in enumerate(numbers[preamble:], preamble):
-            if not checknsum(numbers[i-preamble:i], z, 2):
-                return z
+        if not checknsum(numbers[i-preamble:i], z, 2):
+            return z
 
 def findsum(numbers, target):
     lo, hi = 0, 1
