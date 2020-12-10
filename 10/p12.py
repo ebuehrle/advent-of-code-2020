@@ -1,8 +1,8 @@
 import sys
 
 adapters = list(sorted(map(int, sys.stdin)))
-
 joltages = [0] + adapters + [adapters[-1] + 3]
+
 dist = [0, 0, 0, 0]
 for prv, nxt in zip(joltages[:-1], joltages[1:]):
     dist[nxt - prv] += 1
