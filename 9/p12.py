@@ -29,9 +29,9 @@ if __name__ == '__main__':
 
     numbers = list(map(int, sys.stdin))
     invalid = find_invalid(numbers, 25)
-    print('Invalid number', invalid)
+    print('P1', invalid)
 
     lo, hi = findsum(numbers, invalid)
     smallest = min(numbers[lo:hi])
     largest = max(numbers[lo:hi])
-    print('Encryption weakness', smallest + largest)
+    print('P2', smallest + largest)
