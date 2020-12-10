@@ -60,7 +60,7 @@ if __name__ == '__main__':
     inv_digraph = functools.reduce(add_invrule, rules, dict())
 
     containers = get_containers('shiny gold', inv_digraph)
-    print('Number of possible containers:', len(containers))
+    print('P1:', len(containers))
 
     num_inside_bags = count_inside_bags('shiny gold', digraph)
-    print('NUmber of contained bags:', num_inside_bags)
+    print('P2:', num_inside_bags)
