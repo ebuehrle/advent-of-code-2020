@@ -7,9 +7,7 @@ dist = [0, 0, 0, 0]
 for prv, nxt in zip(joltages[:-1], joltages[1:]):
     dist[nxt - prv] += 1
 
-print(joltages)
-print(dist)
-print('P1', dist[1] * dist[3])
+print('P1:', dist[1] * dist[3])
 
 cnt_ways = [0 for j in joltages]
 cnt_ways[-1] = 1
@@ -20,4 +18,4 @@ for i in reversed(range(len(joltages[:-1]))):
             break
         cnt_ways[i] += cnt_ways[j]
 
-print('P2', cnt_ways[0])
+print('P2:', cnt_ways[0])
