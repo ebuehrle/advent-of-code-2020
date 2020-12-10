@@ -20,10 +20,10 @@ def seat_id(seat):
 if __name__ == '__main__':
     import sys
     ids = list(map(seat_id, map(str.strip, sys.stdin)))
-    print('Max. ID', max(ids))
+    print('P1:', max(ids))
     
     sorted_ids = list(sorted(ids))
     for i, sid in enumerate(sorted_ids[:-1]):
         next_sid = sorted_ids[i + 1]
         if next_sid - sid == 2:
-            print('missing seat ID', sid + 1)
+            print('P2:', sid + 1)
