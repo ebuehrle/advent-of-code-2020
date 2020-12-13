@@ -11,7 +11,7 @@ def gcd(a, b):
     """ Greatest Common Divisor """
     return a if b == 0 else gcd(b, a % b)
 
-def min_time(time, incr, remaining_shuttles):
+def min_time(remaining_shuttles, time=0, incr=1):
     if not remaining_shuttles:
         return time
     
@@ -21,8 +21,8 @@ def min_time(time, incr, remaining_shuttles):
     
     incr = lcm(incr, interval)
 
-    return min_time(time, incr, remaining_shuttles)
+    return min_time(remaining_shuttles, time, incr)
 
 _ = int(input())
 ids = [(int(v), i) for (i, v) in enumerate(input().split(',')) if v != 'x']
-print(min_time(0, 1, ids))
+print(min_time(ids))
