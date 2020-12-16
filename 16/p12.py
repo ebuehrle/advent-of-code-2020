@@ -1,6 +1,5 @@
 import sys
 import functools
-import itertools
 import operator
 
 def parse_input(src):
