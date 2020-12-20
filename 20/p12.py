@@ -7,7 +7,7 @@ import operator
 class Tile:
     def __init__(self, tileid, pixels):
         self.id = tileid
-        self.pixels = np.array([tuple(row) for row in pixels])
+        self.pixels = np.array([list(row) for row in pixels])
         self.rot, self.flip = 0, None
 
     def oriented_pixels(self):
@@ -218,7 +218,7 @@ def remove_seamonsters(image):
     image_binary = image == '#'
     image_height, image_width = image_binary.shape
 
-    seamonster_binary = np.array([tuple(r) for r in seamonster_string]) == '#'
+    seamonster_binary = np.array([list(r) for r in seamonster_string]) == '#'
     monster_height, monster_width = seamonster_binary.shape
 
     for y in range(image_height - (monster_height - 1)):
