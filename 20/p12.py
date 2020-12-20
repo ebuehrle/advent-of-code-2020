@@ -238,7 +238,7 @@ if __name__ == '__main__':
     tiles = parse_tiles(open(sys.argv[1]))
     
     print(len(tiles), 'tiles')
-    print('Please allow up to 30s.') # 15s on Intel Core i7-3632QM
+    print('Please allow up to 30s.') # 10s on Intel Core i7-3632QM
 
     side = int(math.sqrt(len(tiles)))
     part_assign = Assignment(side, side, next(iter(tiles)))
